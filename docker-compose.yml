@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  nuxt:
+    build: ./app
+    container_name: nuxt_container
+    restart: always
+    ports:
+      - "3008:3007"
