@@ -6,5 +6,6 @@ services:
     container_name: nuxt_container_2
     restart: always
     ports:
-      - "3008:3007"
-    command: bash -c "npm install && npm run dev"
+      - "3004:3003"
+    # command: bash -c "npm install && npm run dev"
+    command: npm run dev
