@@ -1,0 +1,29 @@
+kind: pipeline
+type: docker
+name: django0530
+
+steps:
+  - name: dockerpush
+    image: plugins/docker
+    settings:
+      dockerfile: ./nuxt/Dockerfile
+      registry: registry.hub.docker.com
+      repo: registry.hub.docker.com/tacolovejudy/erp_nuxt
+      force_tag: false
+      # auto_tag: true
+      # purge: true
+      username: tacolovejudy
+      password:
+        from_secret: docker_password
+
+  - name: deploycode
+    image: appleboy/drone-ssh
+    settings:
+      host: 192.168.0.41
+      username: Adam
+      password:
+        from_secret: ssh_pass
+      port: 22
+      command_timeout: 1m
+      script:
+        - run_nuxt.bat
