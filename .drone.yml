@@ -6,7 +6,7 @@ steps:
   - name: dockerpush
     image: plugins/docker
     settings:
-      dockerfile: ./nuxt/Dockerfile
+      dockerfile: ./Dockerfile
       registry: registry.hub.docker.com
       repo: registry.hub.docker.com/tacolovejudy/erp_nuxt
       force_tag: false
